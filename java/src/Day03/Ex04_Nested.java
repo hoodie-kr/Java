@@ -69,13 +69,6 @@ public class Ex04_Nested {
 		
 		sc.close();
 	}
-				
-	
-	
-	
-	
-	
-	
 	}
 		
 	
