@@ -22,12 +22,24 @@ public class Car {
 		this.speed = speed;
 	}
 	
+	public int getSpeed() {
+		return speed;
+	}
+	public void setSpeed(int speed) {
+		if( speed < 0 ) {
+			speed = 0;
+			//syserr : ctrl + space
+			System.out.println("속도는 음수가 될 수 없습니다.");
+		}
+		if(speed >= 300 ) {
+			speed = 300;
+			System.out.println("최대 속도는 300km/h 입니다.");
+		}
+		this.speed = speed;
+	}
 	// getter & setter
 	// - getter : 변수의 값을 가져오는 메소드
 	// - setter : 변수의 값을 지정하는 메소드
 	// 게터/세터 이름 : getXXX(), setXXX()
-	
-	
-	
 	
 }
