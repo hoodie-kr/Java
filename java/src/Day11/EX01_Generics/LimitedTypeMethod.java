@@ -12,7 +12,7 @@ public class LimitedTypeMethod {
 	public static void main(String[] args) {
 		LimitedTypeMethod ltm = new LimitedTypeMethod();
 		ltm.<Integer>method(1234);
-		ltm.<Double>method(12.34);
-		
+		ltm.<Double>method(12.34);	
+				
 	}
 }

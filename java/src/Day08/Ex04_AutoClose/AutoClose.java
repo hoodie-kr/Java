@@ -9,17 +9,18 @@ import java.io.UnsupportedEncodingException;
 /**
  * test.txt 파일을 입력하여 텍스트파일의 내용을 출력하는 프로그램
  */
-public class DirectClose {
+public class AutoClose {
 	
 	public static void main(String[] args) {
 		
-		FileInputStream fis = null;
-		InputStreamReader in = null;
-		
-		// test.xtx 파일을 입력할 수 있도록 연결
-		try {
-			fis = new FileInputStream("test.txt");
-			in = new InputStreamReader(fis, "UTF-8");
+		// AutoClose
+		// try ( 자동으로 자원해제할 객체 생성 ) { }
+		// : finally 구문에서 close() 하지 않아도, 자동으로 자원해제 해준다.
+		// * AutoClosable 인터페이스를 구현한 클래스이어야 자동으로 자원해제 가능
+		try (
+			FileInputStream fis = new FileInputStream("test.txt");
+			InputStreamReader in = new InputStreamReader(fis, "UTF-8");
+		) {
 			
 			int read = 0;
 			while( (read = in.read()) != -1 ) {
@@ -36,22 +37,23 @@ public class DirectClose {
 			e.printStackTrace();
 			System.err.println("입출력 관련 예외가 발생했습니다.");
 		}
-		finally {
-			if( fis != null ) {
-				try {
-					fis.close(); 				// 메모리 해제
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-			if( in != null ) {
-				try {
-					in.close();					// 메모리 해제
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		}
+		// 자원 해제 코드
+//		finally {
+//			if( fis != null ) {
+//				try {
+//					fis.close(); 				// 메모리 해제
+//				} catch (Exception e) {
+//					e.printStackTrace();
+//				}
+//			}
+//			if( in != null ) {
+//				try {
+//					in.close();					// 메모리 해제
+//				} catch (Exception e) {
+//					e.printStackTrace();
+//				}
+//			}
+//		}
 		
 		
 		

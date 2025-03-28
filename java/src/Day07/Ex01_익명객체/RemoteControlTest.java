@@ -1,6 +1,5 @@
 package Day07.Ex01_익명객체;
 
-import Ex02_인터페이스.RemoteControl;
 
 public class RemoteControlTest {
 
