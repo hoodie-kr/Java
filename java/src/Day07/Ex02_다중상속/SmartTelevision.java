@@ -72,5 +72,6 @@ public class SmartTelevision implements SmartRemoteControl, Searchable {
 		System.out.println("(x,y) : " + MessageFormat.format("{}, {}", x, y));
 	}
 	
+}
 	
 
